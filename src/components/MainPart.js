@@ -3,6 +3,7 @@ import '../styles/tailwind.css';
 
 
 
+
 export default function MainPart(props) {
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
@@ -59,9 +60,9 @@ export default function MainPart(props) {
   return (
     <>
       <h1 className="score">{playerScore} - {computerScore}</h1>
-      <button onClick={handleClickReset}>Reset</button>
+      <button className="custom-button" onClick={handleClickReset}>Reset</button>
       <button onClick={() => handleConfirmClick("rock")}>Rock</button>
-      <button onClick={() => handleConfirmClick("paper")} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" >Paper</button>
+      <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" onClick={() => handleConfirmClick("paper")} >Paper</button>
       <button onClick={() => handleConfirmClick("scissors")} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" >Scissors</button>
       <h1>{gameStatus}</h1>
     </>
