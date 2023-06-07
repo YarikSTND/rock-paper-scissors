@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Item from "./Item";
 import Scoring from "./Scoring";
+import Header from "./Header";
+import MetaMask from "./MetaMask";
 
 
 export default function MainPart() {
@@ -57,11 +59,14 @@ export default function MainPart() {
   }
 
   return (
-    <>
+    <div>
+      <Header />
       <Scoring playerScore={playerScore} computerScore={computerScore} onClickReset={handleClickReset} gameStatus={gameStatus} />
-      <Item name="rock" image="images/rock.svg" onSelectClick={handleSelectClick}/>
-      <Item name="paper" image="images/paper.svg" onSelectClick={handleSelectClick}/>
-      <Item name="scissors" image="images/scissors.svg" onSelectClick={handleSelectClick}/>
-    </>
+      <div className="flex flex-row">
+        <Item name="rock" image="images/rock.svg" onSelectClick={handleSelectClick}/>
+        <Item name="paper" image="images/paper.svg" onSelectClick={handleSelectClick}/>
+        <Item name="scissors" image="images/scissors.svg" onSelectClick={handleSelectClick}/>
+      </div>
+    </div>
   );
 }
