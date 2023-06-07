@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import Item from "./Item";
+import Scoring from "./Scoring";
 
-export default function MainPart(props) {
+
+export default function MainPart() {
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const [gameStatus, setGameStatus] = useState("");
@@ -17,7 +20,7 @@ export default function MainPart(props) {
     return choices[random];
   }
 
-  function handleConfirmClick(choice) {
+  function handleSelectClick(choice) {
     const computerChoice = generateComputerChoice();
 
     if (choice === "rock") {
@@ -55,12 +58,10 @@ export default function MainPart(props) {
 
   return (
     <>
-      <h1 className="score">{playerScore} - {computerScore}</h1>
-      <button onClick={handleClickReset}>Reset</button>
-      <button onClick={() => handleConfirmClick("rock")}>Rock</button>
-      <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700" onClick={() => handleConfirmClick("paper")} >Paper</button>
-      <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => handleConfirmClick("scissors")} >Scissors</button>
-      <h1>{gameStatus}</h1>
+      <Scoring playerScore={playerScore} computerScore={computerScore} onClickReset={handleClickReset} gameStatus={gameStatus} />
+      <Item name="rock" image="images/rock.svg" onSelectClick={handleSelectClick}/>
+      <Item name="paper" image="images/paper.svg" onSelectClick={handleSelectClick}/>
+      <Item name="scissors" image="images/scissors.svg" onSelectClick={handleSelectClick}/>
     </>
   );
 }
