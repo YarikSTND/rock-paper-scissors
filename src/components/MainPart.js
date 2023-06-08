@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Item from "./Item";
 import Scoring from "./Scoring";
 import Header from "./Header";
-import MetaMask from "./MetaMask";
 
 
 export default function MainPart() {

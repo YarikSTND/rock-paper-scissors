@@ -31,7 +31,12 @@ const MetaMask = () => {
         {account ? (
             <h1>Connected Account: {account}</h1>
         ) : (
-            <button onClick={connectToMetaMask}>Connect MetaMask</button>
+            <button className='flex flex-row items-center m-2 border-2 border-black p-3 rounded-lg bg-white hover:bg-gray-300'
+             onClick={connectToMetaMask}>
+                <img className='h-8 w-8'
+                src="images/metamask-fox.svg" />
+                Connect MetaMask
+            </button>
         )}
     </div>
   )
