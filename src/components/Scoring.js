@@ -19,4 +19,3 @@ export default function Scoring(props) {
     </div>
   );
 }
-// style={{color: "#5D62F9"}}

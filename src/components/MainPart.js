@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Item from "./Item";
 import Scoring from "./Scoring";
 import Header from "./Header";
 
 
 export default function MainPart() {
-  const [playerScore, setPlayerScore] = useState(0);
-  const [computerScore, setComputerScore] = useState(0);
+  const [playerScore, setPlayerScore] = useState(() => {
+    const storedPlayerScore = localStorage.getItem("playerScore")
+    return storedPlayerScore ? parseInt(storedPlayerScore, 10) : 0
+  });
+
+  const [computerScore, setComputerScore] = useState(() => {
+    const storedComputerScore = localStorage.getItem("computerScore")
+    return storedComputerScore ? parseInt(storedComputerScore, 10) : 0
+  });
+
   const [gameStatus, setGameStatus] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("playerScore", playerScore)
+    localStorage.setItem("computerScore", computerScore)
+  }, [playerScore, computerScore])
 
   function handleClickReset() {
     setPlayerScore(0);
     setComputerScore(0);
     setGameStatus("");
+    localStorage.removeItem("playerScore");
+    localStorage.removeItem("computerScore");
   }
 
   function generateComputerChoice() {
@@ -56,6 +71,7 @@ export default function MainPart() {
       }
     }
   }
+
 
   return (
     <div>
