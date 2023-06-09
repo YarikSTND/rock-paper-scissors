@@ -61,7 +61,7 @@ export default function MainPart() {
     <div>
       <Header />
       <Scoring playerScore={playerScore} computerScore={computerScore} onClickReset={handleClickReset} gameStatus={gameStatus} />
-      <div className="flex flex-row">
+      <div className="flex justify-around">
         <Item name="rock" image="images/rock.svg" onSelectClick={handleSelectClick}/>
         <Item name="paper" image="images/paper.svg" onSelectClick={handleSelectClick}/>
         <Item name="scissors" image="images/scissors.svg" onSelectClick={handleSelectClick}/>

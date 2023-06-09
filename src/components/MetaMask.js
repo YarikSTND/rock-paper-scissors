@@ -29,7 +29,9 @@ const MetaMask = () => {
   return (
     <div>
         {account ? (
-            <h1>Connected Account: {account}</h1>
+            <div className='flex flex-row items-center m-2 border-2 border-black p-3 rounded-lg bg-white'>
+              <h1>Connected Account: {account}</h1>
+            </div>
         ) : (
             <button className='flex flex-row items-center m-2 border-2 border-black p-3 rounded-lg bg-white hover:bg-gray-300'
              onClick={connectToMetaMask}>
@@ -42,6 +44,8 @@ const MetaMask = () => {
   )
 }
 
+export default MetaMask;
+
 //   return (
 //     <div>
 //       <h1>Connected Account: {account}</h1>
@@ -50,4 +54,4 @@ const MetaMask = () => {
 //   );
 // };
 
-export default MetaMask;
+
